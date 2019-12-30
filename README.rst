@@ -17,7 +17,19 @@ See the `documentation <https://asciimoo.github.io/searx>`__ and the `wiki <http
 Installation
 ~~~~~~~~~~~~
 
--  clone source:
+With Docker
+------
+Go to the `searx-docker <https://github.com/searx/searx-docker>`__ project.
+
+Without Docker
+------
+For all of the details, follow this `step by step installation <https://asciimoo.github.io/searx/dev/install/installation.html>`__.
+
+Note: the documentation needs to be updated.
+
+If you are in a hurry
+------
+-  clone the source:
    ``git clone https://github.com/asciimoo/searx.git && cd searx``
 -  install dependencies: ``./manage.sh update_packages``
 -  edit your
@@ -25,8 +37,6 @@ Installation
    (set your ``secret_key``!)
 -  run ``python searx/webapp.py`` to start the application
 
-For all the details, follow this `step by step
-installation <https://github.com/asciimoo/searx/wiki/Installation>`__.
 
 Bugs
 ~~~~
