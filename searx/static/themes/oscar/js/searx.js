@@ -78,13 +78,25 @@ if(searx.autocompleter) {
 }
 
 $(document).ready(function(){
+    var original_search_value = '';
     if(searx.autocompleter) {
+		$("#q").on('keydown', function(e) {
+			if(e.which == 13) {
+                original_search_value = $('#q').val();
+			}
+		});
         $('#q').typeahead(null, {
             name: 'search-results',
             displayKey: function(result) {
                 return result;
             },
             source: searx.searchResults.ttAdapter()
+        });
+        $('#q').bind('typeahead:selected', function(ev, suggestion) {
+            if(original_search_value) {
+                $('#q').val(original_search_value);
+            }
+            $("#search_form").submit();
         });
     }
 });
@@ -279,7 +291,7 @@ $(document).ready(function(){
                     }
                 })
                 .fail(function() {
-                    $(result_table_loadicon).html($(result_table_loadicon).html() + "<p class=\"text-muted\">could not load data!</p>");
+                    $(result_table_loadicon).html($(result_table_loadicon).html() + "<p class=\"text-muted\">"+could_not_load+"</p>");
                 });
             }
         }
@@ -354,3 +366,13 @@ $(document).ready(function(){
         $( this ).off( event );
     });
 });
+;$(document).ready(function(){
+    $("#allow-all-engines").click(function() {
+        $(".onoffswitch-checkbox").each(function() { this.checked = false;});
+    });
+
+    $("#disable-all-engines").click(function() {
+        $(".onoffswitch-checkbox").each(function() { this.checked = true;});
+    });
+});
+

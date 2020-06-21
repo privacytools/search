@@ -3,8 +3,10 @@ Blog
 ====
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :caption: Contents
 
    python3
    admin
    intro-offline
+   private-engines
